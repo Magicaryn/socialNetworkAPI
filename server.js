@@ -1,6 +1,6 @@
 const express = require('express');
 const { MongoClient } = require('mongodb');
-const data = require('./models/data');
+const data = require('./models');
 
 
 const app = express();

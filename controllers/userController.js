@@ -1,6 +1,6 @@
 //// models need to be adjusted and this needs to change to correspond
 
-const User = require('../models/User');
+const User = require('./models/User');
 
 module.exports = {
   async getUsers(req, res) {
@@ -87,7 +87,5 @@ module.exports = {
           res.status(500).json(err);
         }
       },
-
-
 
 };
