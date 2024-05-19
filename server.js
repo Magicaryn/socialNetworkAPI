@@ -1,6 +1,6 @@
 const express = require('express');
 const { MongoClient } = require('mongodb');
-const data = require('./models');
+const routes = require('./routes/api');
 
 
 const app = express();
@@ -29,23 +29,27 @@ client.connect()
 
 app.use(express.json());
 
-//change to specific DB once futher implemented
-app.post('/create', (req, res) => {
-  db.collection('social').insertOne(
-    { name: req.body.name, breed: req.body.breed }
-  )
-    .then(results => res.json(results))
-    .catch(err => {
-      if (err) throw err;
-    });
-});
+app.use('/api', routes);
 
-app.get('/read', (req, res) => {
-  db.collection('social')
-    .find()
-    .toArray()
-    .then(results => res.json(results))
-    .catch(err => {
-      if (err) throw err;
-    });
-});
+
+
+//change to specific DB once futher implemented
+// app.post('/create', (req, res) => {
+//   db.collection('social').insertOne(
+//     { name: req.body.name, breed: req.body.breed }
+//   )
+//     .then(results => res.json(results))
+//     .catch(err => {
+//       if (err) throw err;
+//     });
+// });
+
+// app.get('/read', (req, res) => {
+//   db.collection('social')
+//     .find()
+//     .toArray()
+//     .then(results => res.json(results))
+//     .catch(err => {
+//       if (err) throw err;
+//     });
+// });
