@@ -73,8 +73,6 @@ module.exports = {
         res.status(500).json(err);
       }
     },
-/// reaction functionality not working models not in tact. 
-///things below are copy and pasted from above and need to be adjusted to make the reaction
 
     async createReaction(req, res) {
       try {

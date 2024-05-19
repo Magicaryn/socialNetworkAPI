@@ -1,6 +1,6 @@
 const express = require('express');
 const { MongoClient } = require('mongodb');
-const routes = require('./routes/api');
+const routes = require('./routes');
 
 
 const app = express();
@@ -29,7 +29,7 @@ client.connect()
 
 app.use(express.json());
 
-app.use('/api', routes);
+app.use(routes);
 
 
 

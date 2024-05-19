@@ -1,5 +1,5 @@
 
-const mongoose = require('mongoose');
+const { Schema, model} = require('mongoose');
 
 const reactionSchema = new mongoose.Schema({
     reactionId: {
@@ -47,6 +47,6 @@ reactionSchema.virtual('formattedCreatedAt').get(function() {
     return this.createdAt.toLocaleString(); 
   });
 
-const Thought = mongoose.model('Thought', thoughtSchema);
+const Thought = model('Thought', thoughtSchema);
 
 module.exports = Thought;
